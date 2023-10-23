@@ -16,6 +16,21 @@ class CarParts(models.Model):
         return f'{self.name}'
 
 
+class CarBrands(models.Model):
+    name = models.TextField(
+        verbose_name='Ehtiyat hissesinin mashin markasi',
+        help_text='Ehtiyat hissesinin mashin markasin adin yaz.'
+    )
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Ehtiyat hissesinin mashin markasi'
+        verbose_name_plural = 'Ehtiyat hisselerin mashin markasi'
+
+    def __str__(self):
+        return f'{self.name}'
+
+
 class Orders(models.Model):
     name = models.TextField(
         verbose_name='Malin adi.',
