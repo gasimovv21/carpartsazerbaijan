@@ -1,1 +1,2 @@
-web gunicorn carpartsazerbaijan.wsgi:application --log-file -
+web: gunicorn carpartsazerbaijan.wsgi
+worker: celery -A carpartsazerbaijan worker --loglevel=info

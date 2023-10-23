@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-x4#2&gx-+epl=^hs1^b74!s@5@$um5o26@hxmzj5ji!+^+!!ip'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -32,6 +32,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -108,15 +109,13 @@ USE_TZ = True
 # settings.py
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
+# Media files (uploaded user files)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+django_heroku.settings(locals())
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -196,5 +195,3 @@ CAR_PARTS_CHOICES = (
     ('Vəziyyət', 'Vəziyyət'),
     ('Qapi elceyi', 'Qapi elceyi'),
 )
-
-django_heroku.settings(locals())
