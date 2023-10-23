@@ -36,5 +36,6 @@ tzdata==2023.3
 uritemplate==4.1.1
 urllib3==2.0.5
 vboxapi==1.0
+virtualbox==2.1.1
 webcolors==1.13
 wsproto==1.2.0
