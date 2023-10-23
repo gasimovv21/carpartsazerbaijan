@@ -1,5 +1,6 @@
 import os
-
+import django_heroku
+import dj_database_url
 
 from pathlib import Path
 
@@ -107,11 +108,11 @@ USE_TZ = True
 # settings.py
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-#STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, 'static'),
-#)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -195,3 +196,5 @@ CAR_PARTS_CHOICES = (
     ('Vəziyyət', 'Vəziyyət'),
     ('Qapi elceyi', 'Qapi elceyi'),
 )
+
+django_heroku.settings(locals())
